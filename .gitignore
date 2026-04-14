@@ -1,0 +1,37 @@
+.DS_Store
+
+# Local Python env
+.venv/
+
+# Local build and release outputs
+dist-macos/
+dist-release-*/
+test-empty.dmg
+
+# mac_bridge build outputs
+mac_bridge/bin/
+mac_bridge/build/
+mac_bridge/obj/
+mac_bridge/dist/
+
+# Config tool build outputs
+vibe_code_config_tool-master/build/
+vibe_code_config_tool-master/dist/
+vibe_code_config_tool-master/capswriter/build/
+vibe_code_config_tool-master/capswriter/dist/
+vibe_code_config_tool-master/hook/build/
+vibe_code_config_tool-master/hook/dist/
+vibe_code_config_tool-master/**/__pycache__/
+
+# Local caches and logs
+*.log
+*.tmp
+
+# Locally compiled Swift helpers
+vibe_code_config_tool-master/capswriter/focused_text_injector
+vibe_code_config_tool-master/capswriter/voice_input_bridge
+
+# Large model artifacts that exceed normal GitHub push limits
+vibe_code_config_tool-master/capswriter/models/SenseVoice-Small/sensevoice.zip
+vibe_code_config_tool-master/capswriter/models/SenseVoice-Small/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.onnx
+vibe_code_config_tool-master/capswriter/models/SenseVoice-Small/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx
