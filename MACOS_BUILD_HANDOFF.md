@@ -11,7 +11,7 @@
 
 如果当前接手人正在处理“新电脑第一次接管打包环境”，请同时看：
 
-- [NEW_MAC_VENV_SETUP.md](/Users/macbookforpp/Desktop/macmac/待适配mac/NEW_MAC_VENV_SETUP.md)
+- [NEW_MAC_VENV_SETUP.md](<repo-root>/NEW_MAC_VENV_SETUP.md)
 
 ## 1. 当前结论
 
@@ -150,13 +150,13 @@ security find-identity -v -p codesigning
 输出中必须能看到：
 
 ```text
-Developer ID Application: Xinyang Zhang (P2VFVRZK7P)
+Developer ID Application: <Your Name> (<TEAM_ID>)
 ```
 
 再跑：
 
 ```bash
-xcrun notarytool history --keychain-profile vibecoding-notary
+xcrun notarytool history --keychain-profile <notary-profile-name>
 ```
 
 如果这两步都正常，再开始正式打包。
@@ -192,10 +192,10 @@ xcrun notarytool history --keychain-profile vibecoding-notary
 在新电脑上：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 
-CODESIGN_IDENTITY="Developer ID Application: Xinyang Zhang (P2VFVRZK7P)" \
-NOTARY_PROFILE="vibecoding-notary" \
+CODESIGN_IDENTITY="Developer ID Application: <Your Name> (<TEAM_ID>)" \
+NOTARY_PROFILE="<notary-profile-name>" \
 NOTARIZE_TARGET="dmg" \
 ./build_macos.sh
 ```
@@ -203,10 +203,10 @@ NOTARIZE_TARGET="dmg" \
 如果只想先验证 app / zip 能否稳定产出，可先跳过 `dmg`：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 
 SKIP_DMG=1 \
-CODESIGN_IDENTITY="Developer ID Application: Xinyang Zhang (P2VFVRZK7P)" \
+CODESIGN_IDENTITY="Developer ID Application: <Your Name> (<TEAM_ID>)" \
 ./build_macos.sh
 ```
 

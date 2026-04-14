@@ -96,7 +96,7 @@
 
 相关位置：
 
-- [build_macos.sh](/Users/macbookforpp/Desktop/macmac/待适配mac/build_macos.sh)
+- [build_macos.sh](<repo-root>/build_macos.sh)
   - `ensure_venv()`
   - `Creating virtual environment with: ...`
   - `Recreating virtual environment with: ...`
@@ -173,7 +173,7 @@
 把整个项目目录复制到新电脑，例如：
 
 ```text
-/Users/macbookforpp/Desktop/macmac/待适配mac
+<repo-root>
 ```
 
 ### 第 2 步：不要优先依赖旧 `.venv`
@@ -186,7 +186,7 @@
 例如：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 rm -rf .venv
 ```
 
@@ -205,7 +205,7 @@ python3 --version
 ### 第 4 步：直接运行打包脚本
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 chmod +x build_macos.sh
 ./build_macos.sh
 ```
@@ -217,10 +217,10 @@ chmod +x build_macos.sh
 等确认新电脑本地打包链没问题后，再用正式命令：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 
-CODESIGN_IDENTITY="Developer ID Application: Xinyang Zhang (P2VFVRZK7P)" \
-NOTARY_PROFILE="vibecoding-notary" \
+CODESIGN_IDENTITY="Developer ID Application: <Your Name> (<TEAM_ID>)" \
+NOTARY_PROFILE="<notary-profile-name>" \
 NOTARIZE_TARGET="dmg" \
 ./build_macos.sh
 ```
@@ -273,13 +273,13 @@ security find-identity -v -p codesigning
 必须能看到：
 
 ```text
-Developer ID Application: Xinyang Zhang (P2VFVRZK7P)
+Developer ID Application: <Your Name> (<TEAM_ID>)
 ```
 
 ### 6.4 notarization profile 是否可用
 
 ```bash
-xcrun notarytool history --keychain-profile vibecoding-notary
+xcrun notarytool history --keychain-profile <notary-profile-name>
 ```
 
 ### 6.5 蓝牙桥接器依赖是否齐全
@@ -310,7 +310,7 @@ xcrun notarytool history --keychain-profile vibecoding-notary
 如果你只想记最短步骤，就记下面这段：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 rm -rf .venv
 ./build_macos.sh
 ```
@@ -318,10 +318,10 @@ rm -rf .venv
 正式发布再用：
 
 ```bash
-cd /Users/macbookforpp/Desktop/macmac/待适配mac
+cd <repo-root>
 
-CODESIGN_IDENTITY="Developer ID Application: Xinyang Zhang (P2VFVRZK7P)" \
-NOTARY_PROFILE="vibecoding-notary" \
+CODESIGN_IDENTITY="Developer ID Application: <Your Name> (<TEAM_ID>)" \
+NOTARY_PROFILE="<notary-profile-name>" \
 NOTARIZE_TARGET="dmg" \
 ./build_macos.sh
 ```
